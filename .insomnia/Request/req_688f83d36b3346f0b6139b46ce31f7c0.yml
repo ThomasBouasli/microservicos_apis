@@ -1,0 +1,35 @@
+_id: req_688f83d36b3346f0b6139b46ce31f7c0
+type: Request
+parentId: fld_7f918a20d92a4c64b2d94b572cf81fb5
+modified: 1694033268610
+created: 1694033180639
+url: localhost:3002/registro
+name: Editar
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"texto" : "1",
+    	"ticket" : "teste"
+    }
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212441
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

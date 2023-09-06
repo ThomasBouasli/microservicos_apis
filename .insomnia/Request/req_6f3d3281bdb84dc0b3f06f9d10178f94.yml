@@ -1,0 +1,27 @@
+_id: req_6f3d3281bdb84dc0b3f06f9d10178f94
+type: Request
+parentId: fld_5cb96edf77cf416aaeccbfad0226885e
+modified: 1694033246485
+created: 1694032917365
+url: localhost:3002/ticket
+name: Deletar
+description: ""
+method: DELETE
+body: {}
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212341
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

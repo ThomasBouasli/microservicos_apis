@@ -1,0 +1,23 @@
+_id: req_318a15dc22734d16aff1a8af8bd456ca
+type: Request
+parentId: fld_557a7aa6ba404409812de4ec9ad46aa1
+modified: 1694033252322
+created: 1694033102128
+url: localhost:3002/atendente
+name: Listar Todos
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212641
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

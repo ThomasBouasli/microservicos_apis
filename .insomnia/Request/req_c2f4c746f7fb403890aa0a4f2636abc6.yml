@@ -1,0 +1,33 @@
+_id: req_c2f4c746f7fb403890aa0a4f2636abc6
+type: Request
+parentId: fld_77e5df043af6491bbb2a7fa07a1b4189
+modified: 1694033000678
+created: 1694028720831
+url: localhost:3001/pessoas
+name: Criar
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"nome" : "1",
+    	"documento" : "teste",
+    	"endereco" : "av teste",
+    	"telefone" : "11 91111 - 1111"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212541
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

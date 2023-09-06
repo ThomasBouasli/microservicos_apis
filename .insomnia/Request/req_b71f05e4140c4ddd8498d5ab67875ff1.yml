@@ -1,0 +1,23 @@
+_id: req_b71f05e4140c4ddd8498d5ab67875ff1
+type: Request
+parentId: fld_5cb96edf77cf416aaeccbfad0226885e
+modified: 1694033235859
+created: 1694032917362
+url: localhost:3002/ticket/64f8d6636eb76b6ec2d76bab
+name: Listar
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212741
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

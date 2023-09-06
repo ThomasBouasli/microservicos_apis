@@ -1,0 +1,23 @@
+_id: req_683d9fdfe2ea4b95ba117e64741f68ac
+type: Request
+parentId: fld_7f918a20d92a4c64b2d94b572cf81fb5
+modified: 1694033264512
+created: 1694033180638
+url: localhost:3002/registro
+name: Listar Todos
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212641
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

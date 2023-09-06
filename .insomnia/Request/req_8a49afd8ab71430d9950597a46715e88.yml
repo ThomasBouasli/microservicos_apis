@@ -1,0 +1,31 @@
+_id: req_8a49afd8ab71430d9950597a46715e88
+type: Request
+parentId: fld_7f918a20d92a4c64b2d94b572cf81fb5
+modified: 1694033266382
+created: 1694033180636
+url: localhost:3002/registro
+name: Criar
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"texto" : "1",
+    	"ticket" : "teste"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212541
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

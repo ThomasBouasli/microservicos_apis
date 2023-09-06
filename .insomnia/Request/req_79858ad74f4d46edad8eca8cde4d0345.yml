@@ -1,0 +1,23 @@
+_id: req_79858ad74f4d46edad8eca8cde4d0345
+type: Request
+parentId: fld_2b818b75f1f04ca08e7e2e50e7eb5c69
+modified: 1694032976771
+created: 1694031225349
+url: localhost:3003/folha_salarial
+name: Listar Todos
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030307177
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

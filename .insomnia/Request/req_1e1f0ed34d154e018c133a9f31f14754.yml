@@ -1,0 +1,33 @@
+_id: req_1e1f0ed34d154e018c133a9f31f14754
+type: Request
+parentId: fld_5cb96edf77cf416aaeccbfad0226885e
+modified: 1694033241922
+created: 1694032917359
+url: localhost:3002/ticket
+name: Criar
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"identificado_atendente" : "1",
+    	"titulo" : "teste",
+    	"telefone" : "av teste",
+    	"identificado_cliente" : "11 91111 - 1111"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212541
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

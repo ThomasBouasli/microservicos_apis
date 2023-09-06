@@ -1,0 +1,36 @@
+_id: req_53e30b194ce240c3ab46c9bf8ba95265
+type: Request
+parentId: fld_7faeac2e1e8b4c639673f1e8104d5470
+modified: 1694033026256
+created: 1694030335684
+url: localhost:3001/departamento
+name: Editar
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"codigo" : "1",
+    	"nome" : "teste",
+    	"setor" : "av teste",
+    }
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030306827
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

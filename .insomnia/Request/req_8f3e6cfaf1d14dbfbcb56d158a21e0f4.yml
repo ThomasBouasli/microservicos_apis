@@ -1,0 +1,36 @@
+_id: req_8f3e6cfaf1d14dbfbcb56d158a21e0f4
+type: Request
+parentId: fld_2b818b75f1f04ca08e7e2e50e7eb5c69
+modified: 1694032983032
+created: 1694031225352
+url: localhost:3003/folha_salarial
+name: Editar
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"codigo" : "1",
+    	"nome" : "teste",
+    	"setor" : "av teste",
+    }
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030306827
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

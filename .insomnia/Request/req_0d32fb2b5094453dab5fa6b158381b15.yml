@@ -1,0 +1,31 @@
+_id: req_0d32fb2b5094453dab5fa6b158381b15
+type: Request
+parentId: fld_557a7aa6ba404409812de4ec9ad46aa1
+modified: 1694033254065
+created: 1694033102127
+url: localhost:3002/atendente
+name: Criar
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"identificado_pessoa" : "1",
+    	"identificador_setor" : "teste"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212541
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

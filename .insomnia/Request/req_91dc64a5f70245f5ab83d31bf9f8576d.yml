@@ -1,0 +1,27 @@
+_id: req_91dc64a5f70245f5ab83d31bf9f8576d
+type: Request
+parentId: fld_7faeac2e1e8b4c639673f1e8104d5470
+modified: 1694033029587
+created: 1694030351024
+url: localhost:3001/departamento
+name: Deletar
+description: ""
+method: DELETE
+body: {}
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030306727
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
