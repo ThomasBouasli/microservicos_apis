@@ -1,0 +1,14 @@
+{
+  "name": "microservicos_apis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces" : {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "repository": "https://github.com/ThomasBouasli/microservicos_apis.git",
+  "author": "Thomas <thomas.bouasli@gmail.com>",
+  "license": "MIT"
+}
