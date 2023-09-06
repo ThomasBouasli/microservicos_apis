@@ -1,0 +1,23 @@
+_id: req_8f356f34c0a74e23b98e8d6eae987ca5
+type: Request
+parentId: fld_77e5df043af6491bbb2a7fa07a1b4189
+modified: 1694034251162
+created: 1694030082673
+url: "{{ _.host }}:{{ _.port }}/{{ _.path }}/64f8d6636eb76b6ec2d76bab"
+name: Listar
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212741
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

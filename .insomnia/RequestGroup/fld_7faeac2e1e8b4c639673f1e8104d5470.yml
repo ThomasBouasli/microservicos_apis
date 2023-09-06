@@ -1,0 +1,13 @@
+_id: fld_7faeac2e1e8b4c639673f1e8104d5470
+type: RequestGroup
+parentId: fld_9b56943bff6d4e699f6170a944e12955
+modified: 1694034352219
+created: 1694030237904
+name: Departamento
+description: ""
+environment:
+  path: departamento
+environmentPropertyOrder:
+  "&":
+    - path
+metaSortKey: -1694032872466

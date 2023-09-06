@@ -1,0 +1,13 @@
+_id: fld_2b818b75f1f04ca08e7e2e50e7eb5c69
+type: RequestGroup
+parentId: fld_b751aa15094b46edaa93afdc5317f6fa
+modified: 1694034300436
+created: 1694031225339
+name: Folha de Pagamento
+description: ""
+environment:
+  path: folha_salarial
+environmentPropertyOrder:
+  "&":
+    - path
+metaSortKey: -1694032892135

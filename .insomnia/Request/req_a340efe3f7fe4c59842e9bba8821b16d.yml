@@ -1,0 +1,35 @@
+_id: req_a340efe3f7fe4c59842e9bba8821b16d
+type: Request
+parentId: fld_557a7aa6ba404409812de4ec9ad46aa1
+modified: 1694034467992
+created: 1694033102129
+url: "{{ _.host }}:{{ _.port }}/{{ _.path }}"
+name: Editar
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"identificado_pessoa" : "1",
+    	"identificador_setor" : "teste"
+    }
+parameters:
+  - id: pair_9280aa02003b459287e2370c50a8cd4d
+    name: ""
+    value: ""
+    description: ""
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.7
+authentication: {}
+metaSortKey: -1694030212441
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
