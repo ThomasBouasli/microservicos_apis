@@ -1,0 +1,53 @@
+version: "3.1"
+name: internal_services
+services:
+  database:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+  internal_services:
+    depends_on:
+      - database
+    build: ./internal_services
+    ports:
+      - 3001:3001
+    environment:
+      - MONGO_USERNAME=root
+      - MONGO_PASSWORD=example
+      - MONGO_HOST=database
+      - MONGO_PORT=27017
+      - MONGO_DB=example
+      - PORT=3001
+    command: ["npm", "start"]
+  client_support:
+    depends_on:
+      - database
+    build: ./client_support
+    ports:
+      - 3002:3002
+    environment:
+      - MONGO_USERNAME=root
+      - MONGO_PASSWORD=example
+      - MONGO_HOST=database
+      - MONGO_PORT=27017
+      - MONGO_DB=example
+      - PORT=3002
+    command: ["npm", "start"]
+  personal_department:
+    depends_on:
+      - database
+    build: ./personal_department
+    ports:
+      - 3003:3003
+    environment:
+      - MONGO_USERNAME=root
+      - MONGO_PASSWORD=example
+      - MONGO_HOST=database
+      - MONGO_PORT=27017
+      - MONGO_DB=example
+      - PORT=3003
+    command: ["npm", "start"]

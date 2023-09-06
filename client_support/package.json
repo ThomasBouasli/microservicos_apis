@@ -1,0 +1,15 @@
+{
+  "name": "client_support",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "yup": "^1.2.0",
+    "yup-locale-pt": "^0.0.9"
+  }
+}
