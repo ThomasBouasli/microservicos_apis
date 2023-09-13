@@ -22,6 +22,8 @@ services:
       - MONGO_PORT=27017
       - MONGO_DB=example
       - PORT=3001
+      - CLIENT_SUPPORT_PORT=3002
+      - PERSONAL_DEPARTMENT_PORT=3003
     command: ["npm", "start"]
   client_support:
     depends_on:
@@ -36,6 +38,8 @@ services:
       - MONGO_PORT=27017
       - MONGO_DB=example
       - PORT=3002
+      - INTERNAL_SERVICES_PORT=3001
+      - PERSONAL_DEPARTMENT_PORT=3003
     command: ["npm", "start"]
   personal_department:
     depends_on:
@@ -50,4 +54,6 @@ services:
       - MONGO_PORT=27017
       - MONGO_DB=example
       - PORT=3003
+      - INTERNAL_SERVICES_PORT=3001
+      - CLIENT_SUPPORT_PORT=3002
     command: ["npm", "start"]

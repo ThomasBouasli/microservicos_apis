@@ -9,12 +9,15 @@ const yup = require("yup");
 const { ValidationError } = require("yup");
 const { pt } = require("yup-locale-pt");
 const app = Express();
-
+const cors = require("cors");
+const mongoose = require("mongoose");
+const api = require("./api");
 const PORT = process.env.PORT;
 
 yup.setLocale(pt);
 
 app.use(Express.json());
+app.use(cors());
 
 const createTicketsSchema = yup.object({
   identificado_atendente: yup.string().required(),
@@ -50,12 +53,52 @@ const updateRegistroDeAtendimentoSchema = yup.object({
   ticket: yup.string(),
 });
 
+const idIsValid = mongoose.Types.ObjectId.isValid;
+
+async function departamentoExiste(codigo) {
+  try {
+    const response = await api.internalServicesAPI.get(
+      `/departamento/${codigo}`
+    );
+
+    const departamento = response.data;
+
+    if (!departamento) {
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function pessoaExiste(codigo) {
+  try {
+    const response = await api.internalServicesAPI.get(`/pessoas/${codigo}`);
+
+    const pessoa = response.data;
+
+    if (!pessoa) {
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
 app.get("/ticket/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const ticket = await Ticket.findById(id);
@@ -102,6 +145,10 @@ app.put("/ticket/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updateTicketsSchema.validate(body, { strict: true });
@@ -134,6 +181,10 @@ app.delete("/ticket/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const ticket = await Ticket.findById(id);
 
     if (!ticket) {
@@ -154,6 +205,10 @@ app.get("/atendente/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const atendente = await Atendente.findById(id);
@@ -180,6 +235,20 @@ app.post("/atendente", async (req, res) => {
 
     await createAtendentesSchema.validate(body, { strict: true });
 
+    const pessoa = await pessoaExiste(body.identificado_pessoa);
+
+    if (!pessoa) {
+      return res.status(400).json({ error: "a pessoa informada não existe" });
+    }
+
+    const departamento = await departamentoExiste(body.identificador_setor);
+
+    if (!departamento) {
+      return res
+        .status(400)
+        .json({ error: "o departamento informado não existe" });
+    }
+
     const atendente = await Atendente.create(body);
 
     return res.status(201).json(atendente);
@@ -200,6 +269,10 @@ app.put("/atendente/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updateAtendentesSchema.validate(body, { strict: true });
@@ -208,6 +281,20 @@ app.put("/atendente/:id", async (req, res) => {
 
     if (!atendente) {
       return res.status(404).json({ error: "atendente nao encontrado" });
+    }
+
+    const pessoa = await pessoaExiste(body.identificado_pessoa);
+
+    if (!pessoa) {
+      return res.status(400).json({ error: "a pessoa informada não existe" });
+    }
+
+    const departamento = await departamentoExiste(body.identificador_setor);
+
+    if (!departamento) {
+      return res
+        .status(400)
+        .json({ error: "o departamento informado não existe" });
     }
 
     const atendenteUpdated = await Atendente.findByIdAndUpdate(id, body, {
@@ -232,6 +319,10 @@ app.delete("/atendente/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const atendente = await Atendente.findById(id);
 
     if (!atendente) {
@@ -252,6 +343,10 @@ app.get("/registro/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const registro = await RegistroDeAtendimento.findById(id);
@@ -298,6 +393,10 @@ app.put("/registro/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updateRegistroDeAtendimentoSchema.validate(body, { strict: true });
@@ -332,6 +431,10 @@ app.delete("/registro/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const registro = await RegistroDeAtendimento.findById(id);

@@ -4,13 +4,18 @@ const Express = require("express");
 const yup = require("yup");
 const { ValidationError } = require("yup");
 const { pt } = require("yup-locale-pt");
+const api = require("./api");
 const app = Express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 const PORT = process.env.PORT;
 
 yup.setLocale(pt);
 
 app.use(Express.json());
+
+app.use(cors());
 
 const createFolhaSalarialSchema = yup.object({
   codigo_pessoa: yup.string().required(),
@@ -28,12 +33,36 @@ const updateFolhaSalarialSchema = yup.object({
   departamento: yup.string(),
 });
 
+const idIsValid = mongoose.Types.ObjectId.isValid;
+
+async function departamentoExiste(codigo) {
+  try {
+    const response = await api.internalServicesAPI.get(
+      `/departamento/${codigo}`
+    );
+
+    const departamento = response.data;
+
+    if (!departamento) {
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
 app.get("/folha_salarial/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const folhaSalarial = await FolhaSalarial.findById(id);
@@ -60,6 +89,14 @@ app.post("/folha_salarial", async (req, res) => {
 
     await createFolhaSalarialSchema.validate(body, { strict: true });
 
+    const departamento = await departamentoExiste(body.departamento);
+
+    if (!departamento) {
+      return res
+        .status(400)
+        .json({ error: "o departamento informado não existe" });
+    }
+
     const folhaSalarial = await FolhaSalarial.create(body);
 
     return res.status(201).json(folhaSalarial);
@@ -80,9 +117,21 @@ app.put("/folha_salarial/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updateFolhaSalarialSchema.validate(body, { strict: true });
+
+    const departamento = await departamentoExiste(body.departamento);
+
+    if (!departamento) {
+      return res
+        .status(400)
+        .json({ error: "o departamento informado não existe" });
+    }
 
     const folhaSalarial = FolhaSalarial.findById(id);
 
@@ -114,6 +163,10 @@ app.delete("/folha_salarial/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const folhaSalarial = await FolhaSalarial.findById(id);

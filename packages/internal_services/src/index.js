@@ -5,12 +5,15 @@ const yup = require("yup");
 const { ValidationError } = require("yup");
 const { pt } = require("yup-locale-pt");
 const app = Express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 const PORT = 3001;
 
 yup.setLocale(pt);
 
 app.use(Express.json());
+app.use(cors());
 
 const createDepartamentoSchema = yup.object({
   codigo: yup.string().required(),
@@ -37,6 +40,8 @@ const updatePessoasSchema = yup.object({
   endereco: yup.string(),
   telefone: yup.string(),
 });
+
+const idIsValid = mongoose.Types.ObjectId.isValid;
 
 app.get("/departamento/:id", async (req, res) => {
   try {
@@ -90,6 +95,10 @@ app.put("/departamento/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updateDepartamentoSchema.validate(body, { strict: true });
@@ -122,6 +131,10 @@ app.delete("/departamento/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const departamento = await Departamento.findById(id);
 
     if (!departamento) {
@@ -142,6 +155,10 @@ app.get("/pessoas/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const pessoa = await Pessoa.findById(id);
@@ -190,6 +207,10 @@ app.put("/pessoas/:id", async (req, res) => {
       return res.status(400).json({ error: "id is required" });
     }
 
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
+    }
+
     const { body } = req;
 
     await updatePessoasSchema.validate(body, { strict: true });
@@ -220,6 +241,10 @@ app.delete("/pessoas/:id", async (req, res) => {
 
     if (!id) {
       return res.status(400).json({ error: "id is required" });
+    }
+
+    if (!idIsValid(id)) {
+      return res.status(400).json({ error: "id is invalid" });
     }
 
     const pessoa = Pessoa.findById(id);
