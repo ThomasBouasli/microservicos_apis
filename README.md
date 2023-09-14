@@ -2,7 +2,7 @@
 
 ## Membros
 
-- Thomas Bouasli RM87109 [@ThomasBouasli](https://www.github.com/ThomasBouasli)
+- Thomas Bouasli RM87109
 - Antonio Victor Lima Silva RM88497
 - Caio Ávila de Matos RM89010
 
